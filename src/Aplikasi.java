@@ -1,14 +1,9 @@
-import java.security.spec.RSAOtherPrimeInfo;
-
 class Aplikasi {
-    Person person;
+    private Person person;
+    private int poin = 0;
     boolean isDaftarProgram = false;
     Aplikasi(Person person) {
         this.person = person;
-    }
-    void isiSaldo(double balance){
-        person.setBalance(balance);
-        System.out.println("Saldo saat ini : Rp." + person.getBalance());
     }
     void daftarProgram(){
         if(person.isLogin){
@@ -28,12 +23,43 @@ class Aplikasi {
     void membagikanTautan(){
         if(isDaftarProgram){
             System.out.println("Anda sudah membagikan link afiliasi (poin +10)");
-            person.addPoint(10);
+            addPoin(10);
+
         } else {
             System.out.println("Anda harus mendaftar program afiliasi terlebih dahulu");
         }
     }
-    public double getBalance() {
-        return person.getBalance();
+    void addPoin(int poin){
+        this.poin += 10;
+    }
+    void statusPendaftaran(){
+        if(isDaftarProgram){
+            System.out.println("Anda SUDAH terdaftar program afiliasi di aplikasi ini");
+        } else {
+            System.out.println("Anda BELUM terdaftar program afiliasi di aplikasi ini");
+        }
+    }
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public int getPoin() {
+        return poin;
+    }
+
+    public void setPoin(int poin) {
+        this.poin = poin;
+    }
+
+    public boolean isDaftarProgram() {
+        return isDaftarProgram;
+    }
+
+    public void setDaftarProgram(boolean daftarProgram) {
+        isDaftarProgram = daftarProgram;
     }
 }

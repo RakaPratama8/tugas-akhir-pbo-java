@@ -3,7 +3,6 @@ class Person {
     private int umur;
     private String email;
     private String  password;
-    private double balance;
     boolean isLogin = false;
     public Person(String nama, int umur) {
         this.nama = nama;
@@ -28,13 +27,6 @@ class Person {
         this.umur = umur;
     }
 
-    public double getBalance() {
-        return balance;
-    }
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -46,13 +38,18 @@ class Person {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
-    void addPoint(double point){
-        this.balance += (point*1000);
+
+    public boolean isLogin() {
+        return isLogin;
     }
+
+    public void setLogin(boolean login) {
+        isLogin = login;
+    }
+
     public void buat_akun(String email, String password) {
         isLogin = true;
         setEmail(email);
